@@ -11,4 +11,7 @@ os:
   - linux
   - osx
 
+services:
+  - docker
+
 script: make test
