@@ -21,7 +21,7 @@ fi
 cd $1
 OUTPUT_DIR=`pwd`
 TMP=`mktemp -d`
-CC="${CC:-cc}"
+CC="${CC:-docker run -v ${TMP}:/sources -u 1000 -w /sources gcc:4.9 gcc}"
 echo Writing output to $OUTPUT_DIR
 echo Working in $TMP
 cd $TMP
