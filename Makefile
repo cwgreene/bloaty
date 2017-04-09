@@ -57,6 +57,7 @@ src/libbloaty-test.a: $(TESTOBJS)
 tests/testdata/generated/$(GENERATED_TEST_TARGETS)/.marker: tests/testdata/make_test_files.sh
 	tests/testdata/make_test_files.sh $(dir $@)
 	tests/testdata/check_shas.sh $(dir $@)
+	touch $@
 
 test: tests/range_map_test tests/bloaty_test tests/bloaty_misc_test tests/testdata/generated/x86_64/.marker
 	TOP=`pwd`; \
