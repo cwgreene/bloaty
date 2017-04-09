@@ -50,7 +50,7 @@ function make_obj() {
 function make_ar() {
   FILE=$1
   shift
-  $AR rcs $FILE "$@"
+  $AR Drcs $FILE "$@"
   publish $FILE
 }
 
