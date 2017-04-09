@@ -22,6 +22,7 @@ cd $1
 OUTPUT_DIR=`pwd`
 TMP=`mktemp -d`
 CC="${CC:-docker run -v ${TMP}:/sources -u 1000 -w /sources gcc:4.9 gcc}"
+AR="${AR:-docker run -v ${TMP}:/sources -u 1000 -w /sources gcc:4.9 ar}"
 echo Writing output to $OUTPUT_DIR
 echo Working in $TMP
 cd $TMP
@@ -49,7 +50,7 @@ function make_obj() {
 function make_ar() {
   FILE=$1
   shift
-  ar rcs $FILE "$@"
+  $AR rcs $FILE "$@"
   publish $FILE
 }
 
